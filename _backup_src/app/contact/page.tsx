@@ -1,0 +1,11 @@
+import Link from "next/link";
+import { ArrowUpRight, Mail, MapPin, MessageCircle } from "lucide-react";
+import { PageShell, SectionHeading } from "@/components/pages/PageShell";
+
+const CONTACTS = [[Mail, "Email", "hello@gearifypro.com", "mailto:hello@gearifypro.com"], [MessageCircle, "Team quotes", "Start a custom order", "/request-a-quote"], [MapPin, "Studio hours", "Mon–Fri / 09:00–18:00", "#"]] as const;
+export default function ContactPage() {
+  return <PageShell eyebrow="Get in touch" title={<>Let’s talk<br /><span className="text-mist-500">teamwear.</span></>} intro="Have a question about fit, customization, or getting a whole squad kitted out? We’re here for it.">
+    <div className="grid gap-4 md:grid-cols-3">{CONTACTS.map(([Icon, label, value, href]) => <Link href={href} key={label} className="group rounded-3xl border border-white/[0.08] bg-[#131316] p-7 transition hover:-translate-y-1 hover:border-volt/40"><Icon className="size-6 text-volt" /><p className="mt-10 text-[10px] font-semibold uppercase tracking-[0.2em] text-mist-500">{label}</p><p className="mt-2 text-sm text-white">{value}</p><ArrowUpRight className="mt-6 size-4 text-mist-500 transition group-hover:translate-x-1 group-hover:text-volt" /></Link>)}</div>
+    <div className="mt-24 grid gap-12 lg:grid-cols-[0.8fr_1.2fr]"><SectionHeading eyebrow="Good to know" title="A real person is on the other end." body="For custom orders, the fastest path is our quote form. For everything else, send us a note and the Gearify Pro team will get back to you within one business day." /><div className="rounded-[2rem] border border-white/[0.08] bg-[#131316] p-8 md:p-10"><p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-volt">Common questions</p><div className="mt-8 space-y-6">{[["Do you have minimum order quantities?", "We’ll recommend the right route for your team size and kit type."], ["Can I reorder the same kit?", "Yes. We keep your approved design details on file for easy repeat orders."], ["Where do you ship?", "We ship internationally. Include your location in the quote and we’ll confirm timing." ]].map(([q, a]) => <div key={q} className="border-b border-white/[0.08] pb-5"><h3 className="font-heading text-lg font-bold text-white">{q}</h3><p className="mt-2 text-sm leading-relaxed text-mist-400">{a}</p></div>)}</div></div></div>
+  </PageShell>;
+}

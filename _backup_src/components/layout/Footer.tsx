@@ -90,7 +90,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-ink-700 pt-6 text-xs text-mist-500 md:flex-row">
           <p>© {new Date().getFullYear()} Gearify Pro. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex gap-6">
             <Link href="#" className="transition-colors hover:text-ink-100">
               Privacy
             </Link>
@@ -100,15 +100,6 @@ export function Footer() {
             <Link href="#" className="transition-colors hover:text-ink-100">
               Shipping
             </Link>
-            <span className="text-ink-700">·</span>
-            <a
-              href="https://primedotstudio.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-ink-100"
-            >
-              Developed by Prime Dot Studio
-            </a>
           </div>
         </div>
       </div>
